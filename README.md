@@ -5,6 +5,8 @@ Aantekeningen om GitLab in een windows omgeving te draaien.
 
 Ik kies er bewust voor om niet de [Bitnami image](https://bitnami.com/stack/gitlab) te gebruiken. Een groot nadeel van deze image is dat het geen standaard Ubuntu installatie is. Na een korte test kwam ik er achter dat het root account standaard aan staat en dat tabcomplete in de shell niet werkt.
 
+Als ik een stap niet benoem, dan is de default waarde voldoende.
+
 # Pre-install
 * Installeer [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 * Download [Ubuntu 12.04 Netboot](http://nl.archive.ubuntu.com/ubuntu/dists/precise-updates/main/installer-amd64/current/images/netboot/mini.iso)
@@ -25,6 +27,12 @@ Ik kies er bewust voor om niet de [Bitnami image](https://bitnami.com/stack/gitl
 * Blader naar de gedownloade mini.iso om deze als opstartschijf te gebruiken
 * Druk op `ENTER` terwijl de cursor op 'Install' staat
 * Installatie
-  * Language: Dutch
+  * Language: Dutch\*
+  * Toetsenbordindeling detecteren?: Nee
+  * Oorsprong van het toetsenbord: Engels (US)
+  * Toetsenbordindeling: Engels (US) - Engels (US, alternatief internationaal)
+  * Computernaam: gitlab
+  * Land van Ubuntu-archief-spiegelserver\*\*: Nederland
   
-* negeer de incomplete taal waarschuwing, in de jaren dat ik Ubuntu in het Nederlands draai ben ik geen problemen tegen gekomen. Bovendien zijn de commando's en instellingen niet vertaald. Tevens zorgt deze instelling ook voor de juiste localisatie instellingen.
+\* Negeer de incomplete taal waarschuwing, in de jaren dat ik Ubuntu in het Nederlands draai ben ik geen problemen tegen gekomen. Bovendien zijn de commando's en instellingen niet vertaald. Deze instelling zorgt ook voor de juiste localisatie instellingen.
+\*\* Oké, deze is wel lelijk vertaald :)
