@@ -8,12 +8,13 @@ Ik kies er bewust voor om niet de [Bitnami image](https://bitnami.com/stack/gitl
 * Installeer [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 * Download [Ubuntu 12.04 Netboot](http://nl.archive.ubuntu.com/ubuntu/dists/precise-updates/main/installer-amd64/current/images/netboot/mini.iso)
 * Maak in VirtualBox een nieuwe virtuele machine aan
-* * Naam: Ubuntu GitLab
-* * Type: Linux
-* * Versie: Ubuntu (64 bit)
-* * Geheugengrootte: Minstens 1 gig
-* * Harde schijf: Maak nieuwe virtuele harde schijf nu aan
-* * Bestandstype harde schijf: VDI
-* * Opslag op fysieke harde schijf: Dynamisch gealloceerd
-* * Grootte virtuele schijf: 17 GB (dit is hetzelde als de Bitnami image)
+  * Naam: Ubuntu GitLab
+  * Type: Linux
+  * Versie: Ubuntu (64 bit)
+  * Geheugengrootte: Minstens 1 gig
+  * Harde schijf: Maak nieuwe virtuele harde schijf nu aan
+  * Bestandstype harde schijf: VDI
+  * Opslag op fysieke harde schijf: Dynamisch gealloceerd
+  * Grootte virtuele schijf: 17 GB (dit is hetzelde als de Bitnami image)
 * Rechtermuisknop op de zojuist aangemaakte virtuele machine -> Instellingen
+  * 
