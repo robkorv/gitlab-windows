@@ -7,6 +7,8 @@ Ik kies er bewust voor om niet de [Bitnami image](https://bitnami.com/stack/gitl
 
 Als ik een stap niet benoem, dan is de default waarde voldoende.
 
+__LET OP!__: Dit bestand is niet compleet
+
 # Pre-install
 * Installeer [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 * Download [Ubuntu 12.04 Netboot](http://nl.archive.ubuntu.com/ubuntu/dists/precise-updates/main/installer-amd64/current/images/netboot/mini.iso)
@@ -33,6 +35,10 @@ Als ik een stap niet benoem, dan is de default waarde voldoende.
   * Toetsenbordindeling: Engels (US) - Engels (US, alternatief internationaal)
   * Computernaam: gitlab
   * Land van Ubuntu-archief-spiegelserver\*\*: Nederland
+  * Wat is de volledige naam van de nieuwe gebruiker?: GitLab
+  * Wat is de gebruikersnaam voor uw account?: gitlab\*\*\*
+  * Wat is het wachtwoord voor de nieuwe gebruiker?: \<sterk wachtwoord\>\*\*\*
   
-\* Negeer de incomplete taal waarschuwing, in de jaren dat ik Ubuntu in het Nederlands draai ben ik geen problemen tegen gekomen. Bovendien zijn de commando's en instellingen niet vertaald. Deze instelling zorgt ook voor de juiste localisatie instellingen.
-\*\* Oké, deze is wel lelijk vertaald :)
+\* Negeer de incomplete taal waarschuwing, in de jaren dat ik Ubuntu in het Nederlands draai ben ik geen problemen tegen gekomen. Bovendien zijn de commando's en instellingen niet vertaald. Deze instelling zorgt ook voor de juiste localisatie instellingen.  
+\*\* Oké, deze is wel lelijk vertaald :)  
+\*\*\* Onthoudt deze
