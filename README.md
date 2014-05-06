@@ -17,10 +17,14 @@ Ik kies er bewust voor om niet de [Bitnami image](https://bitnami.com/stack/gitl
   * Bestandstype harde schijf: VDI
   * Opslag op fysieke harde schijf: Dynamisch gealloceerd
   * Grootte virtuele schijf: 17 GB (dit is hetzelde als de Bitnami image)
-  * 
+* Rechtermuisknop op de zojuist aangemaakte virtuele machine -> Instellingen
+  * Netwerk -> Netwerk bridge adapter (anders is de vm niet extern bereikbaar)
 
 # Post-install  
-* Start de zojuist aangemaakt virtuele machine
+* Start de aangemaakte virtuele machine
 * Blader naar de gedownloade mini.iso om deze als opstartschijf te gebruiken
 * Druk op `ENTER` terwijl de cursor op 'Install' staat
-* 
+* Installatie
+  * Language: Dutch
+  
+* negeer de incomplete taal waarschuwing, in de jaren dat ik Ubuntu in het Nederlands draai ben ik geen problemen tegen gekomen. Bovendien zijn de commando's en instellingen niet vertaald. Tevens zorgt deze instelling ook voor de juiste localisatie instellingen.
