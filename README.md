@@ -5,9 +5,13 @@ Aantekeningen om GitLab in binnen een windows omgeving te draaien. Als je hier k
 
 Ik kies er bewust voor om niet de [Bitnami image](https://bitnami.com/stack/gitlab) te gebruiken. Een groot nadeel van deze image is dat het geen standaard Ubuntu installatie is. Na een korte test kwam ik er achter dat het root account standaard aan staat en dat tabcomplete in de shell niet werkt.
 
+Ook kies ik niet voor de nieuwste Ubuntu LTS releaase omdat deze niet wordt ondersteund door Git Lab op het moment van schrijven. Ubuntu 12.04 LTS, wordt ondersteund tot 26 April 2017 en is dus een veilige keuze.
+
 Als ik een stap niet benoem, dan is de default waarde voldoende.
 
-Het volgen van de stappen zijn voldoende om gitlab op een veilige manier intern binnen een organisatie te draaien. Hiervoor is geen diepgaande kennis van Ubuntu nodig. Er staan hier en daar wel links waar je uitgebreide informatie kan vinden.
+Het volgen van de stappen is voldoende om gitlab op een veilige manier intern binnen een organisatie te draaien. Hiervoor is geen diepgaande kennis van Ubuntu nodig. Er staan hier en daar wel links waar je uitgebreide informatie kan vinden.
+
+TIP: De terminal van Ubuntu heeft tab-completion. Meestal is 2 á 3 letters van een commando, directory of bestand gevolgd door een `TAB` voldoende.
 
 __LET OP!__: Dit bestand is niet compleet
 
@@ -51,10 +55,8 @@ Kies bij:
 Hierna zijn de defaults ook voldoende. 
 De CD is kan uit het station verwijderd worden door rechtsonder in het VM kader met de rechtermuisknop het CD icoontje te klikken. Kies 'Verwijder schijf van virtuele station', forceer afkoppeling zorgt niet voor problemen. `<Volgende>`
 
-# Ubuntu instellen
+# Ubuntu updaten
 * Login met het account dat is aangemaakt
-
-## Updates en taal pakketten installeren
 
 ```bash
 sudo apt-get update
@@ -81,8 +83,101 @@ route -n
 cat /etc/resolv.conf
 ```
 
-Open 
- 
+Open `/etc/network/interfaces`
+
+```bash
+sudo vim /etc/network/interfaces
+```
+
+Druk op `i` om INSERT mode te activeren. Maak je wijzigingen.  
+Druk op `ESC` om weer naar COMMAND mode te gaan.  
+Druk op `:` om een commando te geven. `wq` (write quit), slaat het bestand op en sluit VIM.  
+`q!` sluit VIM zonder de wijzigingen op te slaan.
+
+Verander de informatie onder `# The primary network interface` met de informatie over je eigen netwerk.
+
+* ip: 192.168.1.10
+* subnet mask: 255.255.255.0
+* gateway: 192.168.1.254
+* dns: 192.168.1.254, 195.241.77.55, 195.241.77.58
+
+```ini
+iface eth0 inet static
+    address 192.168.1.10
+    netmask 255.255.255.0
+    gateway 192.168.1.254
+    dns-nameservers 192.168.1.254 195.241.77.55 195.241.77.58
+```
+
+Na de wijziging breng je eth0 down en weer up
+
+```bash
+sudo ifdown eth0
+sudo ifup eth0
+```
+
+Test je netwerk met
+
+```bash
+ping -c 10 www.google.nl
+```
+
+Test ook of de VM te bereiken is met de windows bak `WINDOWSTOETS + R` -> `cmd`
+
+```cmd
+ping <ip van de vm>
+```
+
+Vanaf nu kan je ook via ssh verbinden. Dit werk makkelijker omdat je niet meer hoeft te switchen naar de terminal op de VM. [Putty](http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe) is een simpele stabiele ssh client.
+
+Open putty, voer het ip van de VM in en druk op `Open`. Accepteer de key en login met het account waarmee je de VM hebt geinstalleerd.
+
+Je kan in de huide VM uitloggen door `exit` te typen.
+
+# Git Lab installeren
+
+Git Lab heeft een mailserver nodig om mail te versturen.
+
+```bash
+sudo tasksel install mail-server
+```
+
+Kies bij de installatie voor Internetsite.
+
+Download [Git Lab Ubuntu 12.04 LTS 64bit](https://www.gitlab.com/downloads/). Vervang de onderstaande link met de laatste versie
+
+```bash
+wget https://downloads-packages.s3.amazonaws.com/ubuntu-12.04/gitlab_6.8.1-omnibus.4-1_amd64.deb
+```
+
+Installeer gdebi zodat er een dependency check wordt uitgevoerd voor de installatie.
+
+```bash
+sudo apt-get install gdebi-core
+```
+
+Git Lab deb installeren
+
+```bash
+sudo gdebi gitlab_6.8.1-omnibus.4-1_amd64.deb
+sudo gitlab-ctl reconfigure
+```
+
+Git Lab is nu geinstalleerd en bereikbaar via http. Open het ip van je VM in de browser, de standaard admin login  is username `root` and password `5iveL!fe`.
+
+# firewall instellen
+
+[Uitgebreide informatie firewall instellen](https://help.ubuntu.com/12.04/serverguide/firewall.html)
+
+Ik ga hem zo instellen dat alle poorten dicht zitten behalve voor de ssh en webservice. Enkelt ip's die binnen de interne range zitten mogen verbinding met de VM.
+
+```
+# firewall aan zetten
+sudo ufw enable
+
+# ssh accepteren
+sudo ufw allow ssh
+```
   
 \* Negeer de incomplete taal waarschuwing, in de jaren dat ik Ubuntu in het Nederlands draai ben ik geen problemen tegen gekomen. Bovendien zijn de commando's en instellingen niet vertaald. Deze instelling zorgt ook voor de juiste localisatie instellingen.  
 \*\* Oké, deze is wel lelijk vertaald :)  
