@@ -3,15 +3,22 @@ gitlab-windows
 
 Aantekeningen om GitLab in binnen een windows omgeving te draaien. Als je hier komt en je de ilusie hebt dat GitLab native kan draaien binnen windows...... dat kan dus niet. Hier wordt beschreven hoe een virtuele machine met GitLab opgezet kan worden.
 
-Ik kies er bewust voor om niet de [Bitnami image](https://bitnami.com/stack/gitlab) te gebruiken. Een groot nadeel van deze image is dat het geen standaard Ubuntu installatie is. Na een korte test kwam ik er achter dat het root account standaard aan staat en dat tabcomplete in de shell niet werkt.
+Ik kies er bewust voor om niet de [Bitnami image](https://bitnami.com/stack/gitlab) te gebruiken. Een groot nadeel van deze image is dat het geen standaard Ubuntu installatie is. Na een korte test kwam ik er achter dat het root account standaard aan staat en dat tabcomplete in de shell niet werkt.... wie weet wat er nog meer anders is?
 
-Ook kies ik niet voor de nieuwste Ubuntu LTS releaase omdat deze niet wordt ondersteund door Git Lab op het moment van schrijven. Ubuntu 12.04 LTS, wordt ondersteund tot 26 April 2017 en is dus een veilige keuze.
+Ook kies ik niet voor de nieuwste Ubuntu LTS release omdat deze niet wordt ondersteund door GitLab op het moment van schrijven. Ubuntu 12.04 LTS, wordt ondersteund tot 26 April 2017 en is dus een veilige keuze.
 
 Als ik een stap niet benoem, dan is de default waarde voldoende.
 
 Het volgen van de stappen is voldoende om gitlab op een veilige manier intern binnen een organisatie te draaien. Hiervoor is geen diepgaande kennis van Ubuntu nodig. Er staan hier en daar wel links waar je uitgebreide informatie kan vinden.
 
 TIP: De terminal van Ubuntu heeft tab-completion. Meestal is 2 á 3 letters van een commando, directory of bestand gevolgd door een `TAB` voldoende.
+
+TODO:
+- [ ] Ip range beveiligen
+- [ ] https activeren
+- [ ] backup binnen windows (via smb?) http://doc.gitlab.com/ce/raketasks/backup_restore.html
+- [ ] server onderhoud beschrijven (update herinnering via mail? updaten via http?)
+- [ ] http://doc.gitlab.com/ce/raketasks/features.html
 
 __LET OP!__: Dit bestand is niet compleet
 
@@ -102,6 +109,7 @@ Verander de informatie onder `# The primary network interface` met de informatie
 * dns: 192.168.1.254, 195.241.77.55, 195.241.77.58
 
 ```ini
+auto eth0
 iface eth0 inet static
     address 192.168.1.10
     netmask 255.255.255.0
@@ -134,9 +142,9 @@ Open putty, voer het ip van de VM in en druk op `Open`. Accepteer de key en logi
 
 Je kan in de huide VM uitloggen door `exit` te typen.
 
-# Git Lab installeren
+# GitLab installeren
 
-Git Lab heeft een mailserver nodig om mail te versturen.
+GitLab heeft een mailserver nodig om mail te versturen.
 
 ```bash
 sudo tasksel install mail-server
@@ -144,7 +152,7 @@ sudo tasksel install mail-server
 
 Kies bij de installatie voor Internetsite.
 
-Download [Git Lab Ubuntu 12.04 LTS 64bit](https://www.gitlab.com/downloads/). Vervang de onderstaande link met de laatste versie
+Download [GitLab Ubuntu 12.04 LTS 64bit](https://www.gitlab.com/downloads/). Vervang de onderstaande link met de laatste versie
 
 ```bash
 wget https://downloads-packages.s3.amazonaws.com/ubuntu-12.04/gitlab_6.8.1-omnibus.4-1_amd64.deb
@@ -156,14 +164,46 @@ Installeer gdebi zodat er een dependency check wordt uitgevoerd voor de installa
 sudo apt-get install gdebi-core
 ```
 
-Git Lab deb installeren
+GitLab installeren
 
 ```bash
 sudo gdebi gitlab_6.8.1-omnibus.4-1_amd64.deb
 sudo gitlab-ctl reconfigure
 ```
 
-Git Lab is nu geinstalleerd en bereikbaar via http. Open het ip van je VM in de browser, de standaard admin login  is username `root` and password `5iveL!fe`.
+GitLab is nu geinstalleerd en bereikbaar via http. Open het ip van je VM in de browser, de standaard admin login  is username `root` and password `5iveL!fe`.
+
+GitLab configureren
+
+```bash
+sudo touch /etc/gitlab/gitlab.rb
+sudo chmod 600 /etc/gitlab/gitlab.rb
+```
+
+Open `sudo vi /etc/gitlab/gitlab.rb`, om het externe url op te geven.
+
+```ruby
+external_url "http://192.168.1.10"
+```
+
+Voer `sudo gitlab-ctl reconfigure` uit om de wijzegingen door te voeren.
+
+Https aanzetten
+
+Zelf gesigneerde certificaten zijn standaard aanwezig in Ubuntu. Je kan natuurlijk je eigen genereren/installeren. Hoe dat moet lees je bij de uitgebreide informatie
+
+[Uitgebreiden certificaat informatie](https://help.ubuntu.com/12.04/serverguide/certificates-and-security.html)
+
+Open `sudo vi /etc/gitlab/gitlab.rb` en wijzig de regels voor https 
+
+```ruby
+external_url "https://192.168.1.10"
+nginx['redirect_http_to_https'] = true
+nginx['ssl_certificate'] = "/etc/ssl/certs/ssl-cert-snakeoil.pem"
+nginx['ssl_certificate_key'] = " /etc/ssl/private/ssl-cert-snakeoil.key"
+```
+
+Voer `sudo gitlab-ctl reconfigure` uit om de wijzegingen door te voeren.
 
 # firewall instellen
 
@@ -186,3 +226,5 @@ sudo ufw allow ssh
 # Troubleshooting
 * De Ubuntu VM heeft een zwart scherm
  * Druk op `CTRL + F1` om naar tty1 te gaan
+* Openssl geeft een `unable to write 'random state'` melding
+  * `sudo rm .rnd`
