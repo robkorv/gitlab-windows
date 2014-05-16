@@ -15,7 +15,7 @@ TIP: De terminal van Ubuntu heeft tab-completion. Meestal is 2 á 3 letters van 
 
 TODO:
 - [ ] Ip range beveiligen
-- [ ] https activeren
+- [x] https activeren
 - [ ] backup binnen windows (via smb?) http://doc.gitlab.com/ce/raketasks/backup_restore.html
 - [ ] server onderhoud beschrijven (update herinnering via mail? updaten via http?)
 - [ ] http://doc.gitlab.com/ce/raketasks/features.html
