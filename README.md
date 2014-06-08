@@ -62,6 +62,23 @@ Kies bij:
 Hierna zijn de defaults ook voldoende. 
 De CD kan uit het station verwijderd worden door rechtsonder in het VM kader met de rechtermuisknop het CD icoontje te klikken. Kies 'Verwijder schijf van virtuele station', forceer afkoppeling zorgt niet voor problemen. `<Volgende>`
 
+# firewall instellen
+
+[Uitgebreide informatie firewall instellen](https://help.ubuntu.com/12.04/serverguide/firewall.html)
+
+Ik ga hem zo instellen dat alle poorten dicht zitten behalve voor ssh en https.
+
+```
+# firewall aan zetten
+sudo ufw enable
+
+# ssh accepteren
+sudo ufw allow ssh
+
+# https accepteren
+sudo ufw allow https
+```
+
 # Ubuntu updaten
 * Login met het account dat is aangemaakt
 
@@ -204,23 +221,6 @@ nginx['ssl_certificate_key'] = " /etc/ssl/private/ssl-cert-snakeoil.key"
 ```
 
 Voer `sudo gitlab-ctl reconfigure` uit om de wijzegingen door te voeren.
-
-# firewall instellen
-
-[Uitgebreide informatie firewall instellen](https://help.ubuntu.com/12.04/serverguide/firewall.html)
-
-Ik ga hem zo instellen dat alle poorten dicht zitten behalve voor de ssh en webservice. ~~Enkelt ip's die binnen de interne range zitten mogen verbinding met de VM~~.
-
-```
-# firewall aan zetten
-sudo ufw enable
-
-# ssh accepteren
-sudo ufw allow ssh
-
-# https accepteren
-sudo ufw allow https
-```
   
 \* Negeer de incomplete taal waarschuwing, in de jaren dat ik Ubuntu in het Nederlands draai ben ik geen problemen tegen gekomen. Bovendien zijn de commando's en instellingen niet vertaald. Deze instelling zorgt ook voor de juiste localisatie instellingen.  
 \*\* Oké, deze is wel lelijk vertaald :)  
