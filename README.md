@@ -62,6 +62,8 @@ Kies bij:
 Hierna zijn de defaults ook voldoende. 
 De CD kan uit het station verwijderd worden door rechtsonder in het VM kader met de rechtermuisknop het CD icoontje te klikken. Kies 'Verwijder schijf van virtuele station', forceer afkoppeling zorgt niet voor problemen. `<Volgende>`
 
+Log na de reboot vervolgens in met het aangemaakt account.
+
 # firewall instellen
 
 [Uitgebreide informatie firewall instellen](https://help.ubuntu.com/12.04/serverguide/firewall.html)
@@ -80,7 +82,6 @@ sudo ufw allow https
 ```
 
 # Ubuntu updaten
-* Login met het account dat is aangemaakt
 
 ```bash
 sudo apt-get update
