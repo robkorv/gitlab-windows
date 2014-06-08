@@ -60,7 +60,7 @@ Kies bij:
  * OpenSSH Server
 
 Hierna zijn de defaults ook voldoende. 
-De CD is kan uit het station verwijderd worden door rechtsonder in het VM kader met de rechtermuisknop het CD icoontje te klikken. Kies 'Verwijder schijf van virtuele station', forceer afkoppeling zorgt niet voor problemen. `<Volgende>`
+De CD kan uit het station verwijderd worden door rechtsonder in het VM kader met de rechtermuisknop het CD icoontje te klikken. Kies 'Verwijder schijf van virtuele station', forceer afkoppeling zorgt niet voor problemen. `<Volgende>`
 
 # Ubuntu updaten
 * Login met het account dat is aangemaakt
