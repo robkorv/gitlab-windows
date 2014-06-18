@@ -172,6 +172,16 @@ sudo tasksel install mail-server
 
 Kies bij de installatie voor Internetsite.
 
+Tijdens de installatie van GitLab wordt er login informatie verstuurd naar de root. Deze mail kan geforward worden door `root: <email@adres.nl>` toe te voegen aan `/etc/aliases`.
+
+```bash
+# mail adres instellen
+sudo vi /etc/aliases
+
+# nieuwe alias aanmelden
+sudo newaliases
+```
+
 ## GitLab downloaden en installeren
 
 Download [GitLab Ubuntu 12.04 LTS 64bit](https://www.gitlab.com/downloads/). Vervang de onderstaande link met de laatste versie
@@ -214,7 +224,7 @@ Voer `sudo gitlab-ctl reconfigure` uit om de wijzegingen door te voeren.
 
 Zelf gesigneerde certificaten zijn standaard aanwezig in Ubuntu. Je kan natuurlijk je eigen genereren/installeren. Hoe dat moet lees je bij de uitgebreide informatie
 
-[Uitgebreiden certificaat informatie](https://help.ubuntu.com/12.04/serverguide/certificates-and-security.html)
+[Uitgebreide certificaat informatie](https://help.ubuntu.com/12.04/serverguide/certificates-and-security.html)
 
 Open `sudo vi /etc/gitlab/gitlab.rb` en wijzig de regels voor https 
 
@@ -226,6 +236,42 @@ nginx['ssl_certificate_key'] = " /etc/ssl/private/ssl-cert-snakeoil.key"
 ```
 
 Voer `sudo gitlab-ctl reconfigure` uit om de wijzegingen door te voeren.
+
+# Ubuntu onderhouden
+
+## Automatische updates 
+
+[Uitgebreide automatische updates informatie](https://help.ubuntu.com/12.04/serverguide/automatic-updates.html)
+
+Unattended-upgrades installeren, dit zorgt ervoor dat security updates automatisch worden geinstalleerd.
+
+```bash
+sudo apt-get install unattended-upgrades
+```
+
+Je kan op de hoogte gehouden worden door unattended-upgrades via de mail.
+
+```bash
+sudo vi /etc/apt/apt.conf.d/50unattended-upgrades
+```
+
+Haal de `//` weg bij `Unattended-Upgrade::Mail "root@localhost";` en vul het mail adres in waar de status mails naar toe moeten.
+
+## Update notificaties
+
+Unattended-upgrades mailt alleen als er security updates zijn geinstalleerd. Apticron doet dit voor alle updates.
+
+```bash
+sudo apt-get install apticron
+```
+
+Stel het mail adres in
+
+```bash
+sudo vi /etc/apticron/apticron.conf
+```
+
+Verander `EMAIL="root@example.com"` naar het mail adres dat je wilt gebruiken.
 
 # Troubleshooting
 * De Ubuntu VM heeft een zwart scherm
