@@ -236,7 +236,7 @@ nginx['ssl_certificate'] = "/etc/ssl/certs/ssl-cert-snakeoil.pem"
 nginx['ssl_certificate_key'] = " /etc/ssl/private/ssl-cert-snakeoil.key"
 ```
 
-Voer `sudo gitlab-ctl reconfigure` uit om de wijzegingen door te voeren.
+Voer `sudo gitlab-ctl reconfigure` uit om de wijzigingen door te voeren.
 
 # Ubuntu onderhouden
 
