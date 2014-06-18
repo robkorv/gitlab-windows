@@ -70,7 +70,7 @@ Log na de reboot vervolgens in met het aangemaakt account.
 
 Ik ga hem zo instellen dat alle poorten dicht zitten behalve voor ssh en https.
 
-```
+```bash
 # firewall aan zetten
 sudo ufw enable
 
@@ -126,7 +126,7 @@ Verander de informatie onder `# The primary network interface` met de informatie
 * gateway: 192.168.1.254
 * dns: 192.168.1.254, 195.241.77.55, 195.241.77.58
 
-```ini
+```INI
 auto eth0
 iface eth0 inet static
     address 192.168.1.10
