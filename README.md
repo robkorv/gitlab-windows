@@ -71,14 +71,15 @@ Log na de reboot vervolgens in met het aangemaakt account.
 Ik ga hem zo instellen dat alle poorten dicht zitten behalve voor ssh en https.
 
 ```bash
-# firewall aan zetten
-sudo ufw enable
 
 # ssh accepteren
 sudo ufw allow ssh
 
 # https accepteren
 sudo ufw allow https
+
+# firewall aan zetten
+sudo ufw enable
 ```
 
 ## Ubuntu updaten
