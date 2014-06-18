@@ -51,6 +51,8 @@ __LET OP!__: Dit bestand is niet compleet
   * Wat is de volledige naam van de nieuwe gebruiker?: GitLab
   * Wat is de gebruikersnaam voor uw account?: gitlab
   * Wat is het wachtwoord voor de nieuwe gebruiker?: \<sterk wachtwoord\>
+  * Schijfindelingsmethode: Begeleid - benut gehele schijf
+  * Wilt u deze aanpassingen wegschrijven naar de schijven: Ja
 
 Bij de volgende opties zijn de default waarden genoeg. Op een gegeven moment wordt het basis systeem geinstalleerd.
 Kies bij:
