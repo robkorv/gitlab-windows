@@ -42,15 +42,15 @@ __LET OP!__: Dit bestand is niet compleet
 * Blader naar de gedownloade mini.iso om deze als opstartschijf te gebruiken
 * Druk op `ENTER` terwijl de cursor op 'Install' staat
 * Installatie
-  * Language: Dutch\*
+  * Language: Dutch
   * Toetsenbordindeling detecteren?: Nee
   * Oorsprong van het toetsenbord: Engels (US)
   * Toetsenbordindeling: Engels (US) - Engels (US, alternatief internationaal)
   * Computernaam: gitlab
-  * Land van Ubuntu-archief-spiegelserver\*\*: Nederland
+  * Land van Ubuntu-archief-spiegelserver: Nederland
   * Wat is de volledige naam van de nieuwe gebruiker?: GitLab
-  * Wat is de gebruikersnaam voor uw account?: gitlab\*\*\*
-  * Wat is het wachtwoord voor de nieuwe gebruiker?: \<sterk wachtwoord\>\*\*\*
+  * Wat is de gebruikersnaam voor uw account?: gitlab
+  * Wat is het wachtwoord voor de nieuwe gebruiker?: \<sterk wachtwoord\>
 
 Bij de volgende opties zijn de default waarden genoeg. Op een gegeven moment wordt het basis systeem geinstalleerd.
 Kies bij:
@@ -64,7 +64,7 @@ De CD kan uit het station verwijderd worden door rechtsonder in het VM kader met
 
 Log na de reboot vervolgens in met het aangemaakt account.
 
-# firewall instellen
+## Firewall instellen
 
 [Uitgebreide informatie firewall instellen](https://help.ubuntu.com/12.04/serverguide/firewall.html)
 
@@ -81,7 +81,7 @@ sudo ufw allow ssh
 sudo ufw allow https
 ```
 
-# Ubuntu updaten
+## Ubuntu updaten
 
 ```bash
 sudo apt-get update
@@ -160,7 +160,9 @@ Open putty, voer het ip van de VM in en druk op `Open`. Accepteer de key en logi
 
 Je kan in de huide VM uitloggen door `exit` te typen.
 
-# GitLab installeren
+# GitLab install
+
+## Mailserver instellen
 
 GitLab heeft een mailserver nodig om mail te versturen.
 
@@ -169,6 +171,8 @@ sudo tasksel install mail-server
 ```
 
 Kies bij de installatie voor Internetsite.
+
+## GitLab downloaden en installeren
 
 Download [GitLab Ubuntu 12.04 LTS 64bit](https://www.gitlab.com/downloads/). Vervang de onderstaande link met de laatste versie
 
@@ -191,7 +195,7 @@ sudo gitlab-ctl reconfigure
 
 GitLab is nu geinstalleerd en bereikbaar via http. Open het ip van je VM in de browser, de standaard admin login  is username `root` and password `5iveL!fe`.
 
-GitLab configureren
+# GitLab configureren
 
 ```bash
 sudo touch /etc/gitlab/gitlab.rb
@@ -206,7 +210,7 @@ external_url "http://192.168.1.10"
 
 Voer `sudo gitlab-ctl reconfigure` uit om de wijzegingen door te voeren.
 
-Https aanzetten
+## Https aanzetten
 
 Zelf gesigneerde certificaten zijn standaard aanwezig in Ubuntu. Je kan natuurlijk je eigen genereren/installeren. Hoe dat moet lees je bij de uitgebreide informatie
 
@@ -222,10 +226,6 @@ nginx['ssl_certificate_key'] = " /etc/ssl/private/ssl-cert-snakeoil.key"
 ```
 
 Voer `sudo gitlab-ctl reconfigure` uit om de wijzegingen door te voeren.
-  
-\* Negeer de incomplete taal waarschuwing, in de jaren dat ik Ubuntu in het Nederlands draai ben ik geen problemen tegen gekomen. Bovendien zijn de commando's en instellingen niet vertaald. Deze instelling zorgt ook voor de juiste localisatie instellingen.  
-\*\* Oké, deze is wel lelijk vertaald :)  
-\*\*\* Onthoudt deze
 
 # Troubleshooting
 * De Ubuntu VM heeft een zwart scherm
