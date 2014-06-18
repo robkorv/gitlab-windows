@@ -173,7 +173,7 @@ sudo tasksel install mail-server
 
 Kies bij de installatie voor Internetsite.
 
-Tijdens de installatie van GitLab wordt er login informatie verstuurd naar de root. Deze mail kan geforward worden door `root: <email@adres.nl>` toe te voegen aan `/etc/aliases`.
+Het root account krijgt nog wel eens interne mail, deze kan geforward worden door `root: <email@adres.nl>` toe te voegen aan `/etc/aliases`.
 
 ```bash
 # mail adres instellen
@@ -183,7 +183,15 @@ sudo vi /etc/aliases
 sudo newaliases
 ```
 
+Ook de aangemaakte GitLab gebruiker krijgt wel eens interne mail. Deze kan geforward worden door in `~/.forward` een mail adres te zetten
+
+```bash
+vi ~/.forward
+```
+
 ## GitLab downloaden en installeren
+
+##GitLab installeren
 
 Download [GitLab Ubuntu 12.04 LTS 64bit](https://www.gitlab.com/downloads/). Vervang de onderstaande link met de laatste versie
 
@@ -196,8 +204,6 @@ Installeer gdebi zodat er een dependency check wordt uitgevoerd voor de installa
 ```bash
 sudo apt-get install gdebi-core
 ```
-
-GitLab installeren
 
 ```bash
 sudo gdebi gitlab_6.8.1-omnibus.4-1_amd64.deb
