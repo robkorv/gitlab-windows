@@ -221,21 +221,13 @@ sudo touch /etc/gitlab/gitlab.rb
 sudo chmod 600 /etc/gitlab/gitlab.rb
 ```
 
-Open `sudo vi /etc/gitlab/gitlab.rb`, om het externe url op te geven.
-
-```ruby
-external_url "http://192.168.1.10"
-```
-
-Voer `sudo gitlab-ctl reconfigure` uit om de wijzegingen door te voeren.
-
 ## Https aanzetten
 
 Zelf gesigneerde certificaten zijn standaard aanwezig in Ubuntu. Je kan natuurlijk je eigen genereren/installeren. Hoe dat moet lees je bij de uitgebreide informatie
 
 [Uitgebreide certificaat informatie](https://help.ubuntu.com/12.04/serverguide/certificates-and-security.html)
 
-Open `sudo vi /etc/gitlab/gitlab.rb` en wijzig de regels voor https 
+Open `sudo vi /etc/gitlab/gitlab.rb` en voeg de volgende info toe
 
 ```ruby
 external_url "https://192.168.1.10"
