@@ -212,7 +212,7 @@ sudo gdebi gitlab_6.8.1-omnibus.4-1_amd64.deb
 sudo gitlab-ctl reconfigure
 ```
 
-GitLab is nu geinstalleerd en bereikbaar via http. Open het ip van je VM in de browser, de standaard admin login  is username `root` and password `5iveL!fe`.
+De standaard admin login is username `root` and password `5iveL!fe`.
 
 # GitLab configureren
 
