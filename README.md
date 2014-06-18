@@ -126,7 +126,7 @@ Verander de informatie onder `# The primary network interface` met de informatie
 * gateway: 192.168.1.254
 * dns: 192.168.1.254, 195.241.77.55, 195.241.77.58
 
-```INI
+```
 auto eth0
 iface eth0 inet static
     address 192.168.1.10
