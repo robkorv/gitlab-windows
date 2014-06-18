@@ -279,3 +279,5 @@ Verander `EMAIL="root@example.com"` naar het mail adres dat je wilt gebruiken.
  * Druk op `CTRL + F1` om naar tty1 te gaan
 * Openssl geeft een `unable to write 'random state'` melding
   * `sudo rm .rnd`
+* Mailtjes komen niet aan
+ * Grote kans dat ze als spam worden gezien
