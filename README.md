@@ -278,6 +278,66 @@ sudo vi /etc/apticron/apticron.conf
 
 Verander `EMAIL="root@example.com"` naar het mail adres dat je wilt gebruiken.
 
+# GitLab onderhoud
+
+## GitLab status
+
+```bash
+sudo gitlab-ctl status
+```
+
+## GitLab check
+
+```bash
+sudo gitlab-rake gitlab:check
+```
+
+De melding `Install the init script` kan je negeren, aangezien GitLab al automatisch start.
+
+## Start/Stop/Restart GitLab 
+
+```bash
+# Start all GitLab components
+sudo gitlab-ctl start
+
+# Stop all GitLab components
+sudo gitlab-ctl stop
+
+# Restart all GitLab components
+sudo gitlab-ctl restart
+
+# Restart individual components
+sudo gitlab-ctl restart sidekiq
+```
+
+# Backup
+
+Ik zie geen reden om Ubuntu zelf te backuppen. Dit is niet nodig omdat alle belangrijke bestanden in een GitLab backup zit. Mocht de VM verloren gaan dan is er met minimale configuratie een nieuwe op te zetten waar een een GitLab backup in hetsteld kan worden.
+
+## GitLab backup maken
+
+De backup wordt aangemaakt in `/var/opt/gitlab/backups/`.
+
+```bash
+sudo gitlab-rake gitlab:backup:create
+```
+
+## GitLab dagelijkse backups inplannen
+
+Het volgende zorgt ervoor dat er elke dag om 02:00 en backup wordt gemaakt.
+
+```bash
+sudo crontab -e
+```
+
+> Als de editor wordt gevraagd, kies dan `/usr/bin/vim.basic` voor VIM.
+
+Voeg de regel `0 2 * * * /opt/gitlab/bin/gitlab-rake gitlab:backup:create` toe.
+
+## GitLab backups automatisch opschonen
+
+Met de instelling `gitlab_rails['backup_keep_time'] = 604800` in `/etc/gitlab/gitlab.rb` worden backups ouder dan 7 dagen verwijderd bij de volgende backup actie. De tijd is in seconden.
+
 # Troubleshooting
 * De Ubuntu VM heeft een zwart scherm
  * Druk op `CTRL + F1` om naar tty1 te gaan
