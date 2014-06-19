@@ -18,7 +18,6 @@ TODO:
 - [x] https activeren
 - [ ] backup binnen windows (via smb?) http://doc.gitlab.com/ce/raketasks/backup_restore.html
 - [x] server onderhoud beschrijven (update herinnering via mail? updaten via http?) https://help.ubuntu.com/12.04/serverguide/automatic-updates.html
-- [ ] http://doc.gitlab.com/ce/raketasks/features.html
 - [ ] ik denk dat root als mail voldoende is, vanwege de forward instellingen, dit moet ik nog testen
 
 __LET OP!__: Dit bestand is niet compleet
