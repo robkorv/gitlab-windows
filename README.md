@@ -81,6 +81,9 @@ sudo ufw allow ssh
 # https accepteren
 sudo ufw allow https
 
+# http accepteren
+sudo ufw allow http
+
 # firewall aan zetten
 sudo ufw enable
 ```
