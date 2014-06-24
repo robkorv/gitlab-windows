@@ -17,7 +17,7 @@ TODO:
 - [ ] Ip range beveiligen
 - [x] https activeren
 - [ ] backup binnen windows (via smb?) http://doc.gitlab.com/ce/raketasks/backup_restore.html
-- [ ] server onderhoud beschrijven (update herinnering via mail? updaten via http?) https://help.ubuntu.com/12.04/serverguide/automatic-updates.html, apticron werkt, unattended-upgrades nog niet
+- [x] server onderhoud beschrijven (update herinnering via mail? updaten via http?) https://help.ubuntu.com/12.04/serverguide/automatic-updates.html, apticron werkt, unattended-upgrades nog niet
 - [x] root als mail voldoende is, vanwege de forward instellingen
 
 __LET OP!__: Dit bestand is niet compleet
@@ -251,6 +251,16 @@ Unattended-upgrades installeren, dit zorgt ervoor dat security updates automatis
 
 ```bash
 sudo apt-get install unattended-upgrades
+```
+
+De instellingen staan in `/etc/apt/apt.conf.d/10periodic`.  
+Met de volgend instelling wordt de package list elke dag geupdate en security updates geinstalleerd. Om de 7 dagen worden oude niet geinstalleerd packages verwijderd.
+
+```
+APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Download-Upgradeable-Packages "1";
+APT::Periodic::AutocleanInterval "7";
+APT::Periodic::Unattended-Upgrade "1";
 ```
 
 Je kan op de hoogte gehouden worden door unattended-upgrades via de mail.
