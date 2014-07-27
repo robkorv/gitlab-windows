@@ -252,6 +252,8 @@ Elke optie vertaald als volgt:
 
 ## Automatische updates 
 
+Als je een [mail alias](#mailserver-instellen) voor root heb ingesteld, is `root` als mailadres voldoende.
+
 [Uitgebreide automatische updates informatie](https://help.ubuntu.com/14.04/serverguide/automatic-updates.html)
 
 Unattended-upgrades installeren, dit zorgt ervoor dat security updates automatisch worden geinstalleerd.
