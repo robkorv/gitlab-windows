@@ -5,11 +5,9 @@ Aantekeningen om GitLab in binnen een windows omgeving te draaien. Als je hier k
 
 Ik kies er bewust voor om niet de [Bitnami image](https://bitnami.com/stack/gitlab) te gebruiken. Een groot nadeel van deze image is dat het geen standaard Ubuntu installatie is. Na een korte test kwam ik er achter dat het root account standaard aan staat en dat tabcomplete in de shell niet werkt.... wie weet wat er nog meer anders is?
 
-Ook kies ik niet voor de nieuwste Ubuntu LTS release omdat deze niet wordt ondersteund door GitLab op het moment van schrijven. Ubuntu 12.04 LTS, wordt ondersteund tot 26 April 2017 en is dus een veilige keuze.
-
 Als ik een stap niet benoem, dan is de default waarde voldoende.
 
-Het volgen van de stappen is voldoende om gitlab op een veilige manier intern binnen een organisatie te draaien. Hiervoor is geen diepgaande kennis van Ubuntu nodig. Er staan hier en daar wel links waar je uitgebreide informatie kan vinden.
+Het volgen van de stappen is voldoende om gitlab op een veilige manier intern binnen een organisatie te draaien. Hiervoor is geen diepgaande kennis van Ubuntu nodig. Er staan hier en daar wel links naar waar je uitgebreide informatie kan vinden.
 
 TIP: De terminal van Ubuntu heeft tab-completion. Meestal is 2 á 3 letters van een commando, directory of bestand gevolgd door een `TAB` voldoende.
 
@@ -24,7 +22,7 @@ __LET OP!__: Dit bestand is niet compleet
 
 # VM Install
 * Installeer [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-* Download [Ubuntu 12.04 Netboot](http://nl.archive.ubuntu.com/ubuntu/dists/precise-updates/main/installer-amd64/current/images/netboot/mini.iso)
+* Download [Ubuntu 14.04 Netboot](http://nl.archive.ubuntu.com/ubuntu/dists/trusty-updates/main/installer-amd64/current/images/netboot/mini.iso)
 * Maak in VirtualBox een nieuwe virtuele machine aan
   * Naam: Ubuntu GitLab
   * Type: Linux
