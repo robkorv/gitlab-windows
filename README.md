@@ -209,7 +209,7 @@ sudo apt-get install gdebi-core
 ```
 
 ```bash
-sudo gdebi gitlab_6.8.1-omnibus.4-1_amd64.deb
+sudo gdebi gitlab_7.1.0-omnibus-1_amd64.deb
 sudo gitlab-ctl reconfigure
 ```
 
