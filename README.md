@@ -196,10 +196,10 @@ vi ~/.forward
 
 ##GitLab installeren
 
-Download [GitLab Ubuntu 12.04 LTS 64bit](https://www.gitlab.com/downloads/). Vervang de onderstaande link met de laatste versie
+Download [GitLab Ubuntu 14.04 LTS 64bit](https://www.gitlab.com/downloads/). Vervang de onderstaande link met de laatste versie
 
 ```bash
-wget https://downloads-packages.s3.amazonaws.com/ubuntu-12.04/gitlab_6.8.1-omnibus.4-1_amd64.deb
+wget https://downloads-packages.s3.amazonaws.com/ubuntu-14.04/gitlab_7.1.0-omnibus-1_amd64.deb
 ```
 
 Installeer gdebi zodat er een dependency check wordt uitgevoerd voor de installatie.
