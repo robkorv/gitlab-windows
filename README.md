@@ -66,7 +66,7 @@ Log na de reboot vervolgens in met het aangemaakt account.
 
 ## Firewall instellen
 
-[Uitgebreide informatie firewall instellen](https://help.ubuntu.com/12.04/serverguide/firewall.html)
+[Uitgebreide informatie firewall instellen](https://help.ubuntu.com/14.04/serverguide/firewall.html)
 
 Ik ga hem zo instellen dat alle poorten dicht zitten behalve voor ssh en https.
 
@@ -97,7 +97,7 @@ sudo apt-get install $(check-language-support)
 
 Voor de volgende stappen is enige basis kennis van VIM nodig, ik vermeld één keer de commando's en short-cuts om een bestand te wijzigen. Wil je VIM onder de knie krijgen lees dan [A Byte of Vim](http://www.swaroopch.com/notes/vim/)
 
-[Uitgebreide informatie netwerk instellen](https://help.ubuntu.com/12.04/serverguide/network-configuration.html)
+[Uitgebreide informatie netwerk instellen](https://help.ubuntu.com/14.04/serverguide/network-configuration.html)
 
 Ga bij je netwerkbeheerder na welk ip je mag gebruiken. Het ip van je gateway en dns server(s) heb je ook nodig. Gebruik de volgende commando's om deze informatie uit Ubuntu te halen.
 
@@ -226,7 +226,7 @@ sudo chmod 600 /etc/gitlab/gitlab.rb
 
 Zelf gesigneerde certificaten zijn standaard aanwezig in Ubuntu. Je kan natuurlijk je eigen genereren/installeren. Hoe dat moet lees je bij de uitgebreide informatie
 
-[Uitgebreide certificaat informatie](https://help.ubuntu.com/12.04/serverguide/certificates-and-security.html)
+[Uitgebreide certificaat informatie](https://help.ubuntu.com/14.04/serverguide/certificates-and-security.html)
 
 Open `sudo vi /etc/gitlab/gitlab.rb` en voeg de volgende info toe
 
@@ -243,7 +243,7 @@ Voer `sudo gitlab-ctl reconfigure` uit om de wijzigingen door te voeren.
 
 ## Automatische updates 
 
-[Uitgebreide automatische updates informatie](https://help.ubuntu.com/12.04/serverguide/automatic-updates.html)
+[Uitgebreide automatische updates informatie](https://help.ubuntu.com/14.04/serverguide/automatic-updates.html)
 
 Unattended-upgrades installeren, dit zorgt ervoor dat security updates automatisch worden geinstalleerd.
 
