@@ -23,7 +23,7 @@ __LET OP!__: Dit bestand is niet compleet
 # VM Install
 * Installeer [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 * Download [Ubuntu 14.04 Netboot](http://nl.archive.ubuntu.com/ubuntu/dists/trusty-updates/main/installer-amd64/current/images/netboot/mini.iso)
-* Maak in VirtualBox een nieuwe virtuele machine aan
+* Maak in VirtualBox een nieuwe virtuele machine aan ([GitLab Hardware Requirements])
   * Naam: Ubuntu GitLab
   * Type: Linux
   * Versie: Ubuntu (64 bit)
@@ -352,3 +352,5 @@ Met de instelling `gitlab_rails['backup_keep_time'] = 604800` in `/etc/gitlab/gi
   * `sudo rm .rnd`
 * Mailtjes komen niet aan
  * Grote kans dat ze als spam worden gezien
+
+[GitLab Hardware Requirements]: https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/install/requirements.md#hardware-requirements
