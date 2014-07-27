@@ -217,11 +217,6 @@ De standaard admin login is username `root` and password `5iveL!fe`.
 
 # GitLab configureren
 
-```bash
-sudo touch /etc/gitlab/gitlab.rb
-sudo chmod 600 /etc/gitlab/gitlab.rb
-```
-
 ## Https aanzetten
 
 Zelf gesigneerde certificaten zijn standaard aanwezig in Ubuntu. Je kan natuurlijk je eigen genereren/installeren. Hoe dat moet lees je bij de uitgebreide informatie
