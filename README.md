@@ -234,6 +234,20 @@ nginx['ssl_certificate_key'] = " /etc/ssl/private/ssl-cert-snakeoil.key"
 
 Voer `sudo gitlab-ctl reconfigure` uit om de wijzigingen door te voeren.
 
+## Publieke projecten verbieden
+
+Om er zeker van te zijn dat je projecten niet toegangkelijk zijn zonder in te loggen kan je Publieke projecten verbieden. Alleen admins kunnen projecten publiekelijk maken.
+
+Voeg `gitlab_rails['gitlab_restricted_visibility_levels'] = ['public']` toe aan `/etc/gitlab/gitlab.rb`
+
+## Meer instel mogelijkheden
+
+Zie [gitlab.yml template](https://gitlab.com/gitlab-org/omnibus-gitlab/blob/7-1-stable/files/gitlab-cookbooks/gitlab/templates/default/gitlab.yml.erb).
+
+Elke optie vertaald als volgt:
+
+`email_from: <%= @gitlab_email_from %>` uit het template =  `gitlab_rails['gitlab_email_from'] = '<email adress>'` in `/etc/gitlab/gitlab.rb`
+
 # Ubuntu onderhouden
 
 ## Automatische updates 
