@@ -46,7 +46,7 @@ __LET OP!__: Dit bestand is niet compleet
   * Toetsenbordindeling: Engels (US) - Engels (US, alternatief internationaal)
   * Computernaam: gitlab
   * Land van Ubuntu-archief-spiegelserver: Nederland
-  * Wat is de volledige naam van de nieuwe gebruiker?: GitLab
+  * Wat is de volledige naam van de nieuwe gebruiker?: Git  Lab
   * Wat is de gebruikersnaam voor uw account?: gitlab
   * Wat is het wachtwoord voor de nieuwe gebruiker?: \<sterk wachtwoord\>
   * Schijfindelingsmethode: Begeleid - benut gehele schijf
@@ -59,7 +59,7 @@ Kies bij:
  * Basic Ubuntu Server
  * OpenSSH Server
 
-Hierna zijn de defaults ook voldoende. 
+Hierna zijn de defaults ook voldoende.
 De CD kan uit het station verwijderd worden door rechtsonder in het VM kader met de rechtermuisknop het CD icoontje te klikken. Kies 'Verwijder schijf van virtuele station', forceer afkoppeling zorgt niet voor problemen. `<Volgende>`
 
 Log na de reboot vervolgens in met het aangemaakt account.
@@ -250,7 +250,7 @@ Elke optie vertaald als volgt:
 
 # Ubuntu onderhouden
 
-## Automatische updates 
+## Automatische updates
 
 Als je een [mail alias](#mailserver-instellen) voor root heb ingesteld, is `root` als mailadres voldoende.
 
@@ -312,7 +312,7 @@ sudo gitlab-rake gitlab:check
 
 De melding `Install the init script` kan je negeren, aangezien GitLab al automatisch start.
 
-## Start/Stop/Restart GitLab 
+## Start/Stop/Restart GitLab
 
 ```bash
 # Start all GitLab components
